@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:27 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/27 22:43:27 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/27 23:36:08 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include "libft/libft.h"
 
 // %[$][flags][width][.precision][length modifier] order
 typedef struct s_flags

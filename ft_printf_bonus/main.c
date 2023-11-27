@@ -6,11 +6,40 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/27 22:52:13 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/27 23:55:48 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+#include <stdio.h>
+
+size_t	ft_putchar(char c)
+{
+	return ((size_t)write(1, &c, 1));
+}
+
+t_flags	*get_flags(const char *conversion)
+{
+	t_flags *flags;
+	int		i;
+	char	*str;
+
+	i = 0;
+	while (!ft_strchr("cspdiuxX%", conversion[i]))
+		i++;
+	str = ft_calloc(i, 1);
+	flags = ft_calloc(sizeof(t_flags *), 1);
+	if (!flags || !str || !conversion[i])
+		return (NULL);
+	ft_strlcpy(str, conversion, i - 1);
+	flags->str = str;
+	flags->conversion = conversion[i];
+	printf("[%s] [%c]\n", flags->str, flags->conversion);
+	return (flags);
+}
+
+
 
 int	ft_printf(const char *format, ...)
 {
@@ -26,12 +55,13 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			*flags = get_flags();
+			printf
+			flags = get_flags(&format[i+1]);
             if (!flags) // if it is only the % sign with nothing in front of it.
-                // do something
-            str = create_str(flags, value); // value is the current position of the pointer
-            i += ft_strlen(flags.str) + 1; // Jumps the amount of char. the size of the flags + the conversion character
-            write(1, &str, ft_strlen(str));
+                printf("no flags\n");
+            //str = create_str(flags, value); // value is the current position of the pointer
+            i += ft_strlen(flags->str) + 1; // Jumps the amount of char. the size of the flags + the conversion character
+            //write(1, &str, ft_strlen(str));
 		}
 		else
 			len += ft_putchar(format[i++]);
@@ -42,6 +72,11 @@ int	ft_printf(const char *format, ...)
 
 int main(int argc, char *argv[])
 {
-    
+    (void)argc;
+	(void)argv;
+	ft_printf("%05d\n");
+	ft_printf("%0.10x\n");
+	ft_printf("% 10001X\n");
+	ft_printf(" 0%p\n");
     return (0);
 }
