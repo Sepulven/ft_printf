@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/28 17:04:38 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:07:40 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	print_flags(t_flags *flags)
 	printf("\n-----------------------{{{}}}-----------------------\n");
 }
 
+/*
+	Sets the precision and the width.
+*/
 int	set_width_precision(t_flags *flags, int i)
 {
 	char	*c;
@@ -50,6 +53,9 @@ int	set_width_precision(t_flags *flags, int i)
 	return (1);
 }
 
+/*
+	Sets the values for for the flags ['-','+',' ','#','0']
+*/
 int	set_flags_values(t_flags *flags)
 {
 	int		i;
@@ -76,6 +82,9 @@ int	set_flags_values(t_flags *flags)
 	return (1);
 }
 
+/*
+	Starts the creation of the s_flags structure.
+*/
 t_flags	*set_flags(const char *specifier)
 {
 	t_flags *flags;
