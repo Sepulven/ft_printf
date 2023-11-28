@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/27 22:03:01 by asepulve          #+#    #+#              #
-#    Updated: 2023/11/27 23:49:02 by asepulve         ###   ########.fr        #
+#    Updated: 2023/11/28 15:11:29 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: ${NAME}
 
 $(NAME):
 		@make  -SC libft
-		@gcc ${SRC} ${LIB}
+		@gcc ${CFLAGS} ${SRC} ${LIB}
 
 clean:
 	@${RM} ${OBJ}
