@@ -33,3 +33,7 @@ Recreate printf.
 5. +(plus): This flag specifies that the sign should always be shown. It ensures that the number is preceded by a plus or minus sign.
 
 6. Space character: A space character in the format string is used to insert a space before a positive number, making the output aligned when dealing with both positive and negative numbers.
+
+7. (number)(width)Minimum number of characters to be printed. If the value to be printed is shorter than this number, the result is padded with blank spaces. The value is not truncated even if the result is larger.
+
+![Flags and specifiers](image.png)
