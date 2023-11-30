@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:37:31 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/28 17:37:54 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:46:20 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,5 @@ t_flags	*set_flags(const char *specifier)
 	flags->conversion = specifier[i];
 	if (!set_flags_values(flags))
 		return (NULL);
-	print_flags(flags);
 	return (flags);
 }

@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:50:13 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/30 18:35:42 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 22:31:33 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ char	*pointerconversion(va_list arg)
 	pointer = va_arg(arg, unsigned long long);
 	if (pointer == 0)
 		return (ft_strdup("(nil)"));
-	hex_number = converter(va_arg(arg, unsigned int), "0123456789abcdef", 16);
-	address = ft_strjoin("0x", hex_number);
-	free(hex_number);
+	hex_number = converter(va_arg(arg, unsigned long long), "0123456789abcdef", 16);
+	// address = ft_strjoin("0x", hex_number);
+	// ft_printf("%d\n", hex_number);
+	// if (hex_number)
+	// 	free(hex_number);
 	return (address);
 }
 
@@ -58,11 +60,10 @@ int		build_str(t_flags *flags, va_list arg)
 
     // Take the value from the arg. then turn it to a string;
     str = conversion(flags->conversion, arg);
-
-
     // Apply the specifiers, flags and then writes it;
     len = ft_strlen(str);
     write(1, str, len);
-    free(str);
+	// if (str)
+    // 	free(str);
     return (len);
 }
