@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:37:31 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/30 18:46:20 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 23:17:47 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,21 @@ static int	set_width_precision(t_flags *flags, int i)
 static int	set_flags_values(t_flags *flags)
 {
 	int		i;
-	char	c;
+
 	i = 0;
-	c = flags->str[i];
-	while(ft_strchr("-+ #0", c))
+	while(flags->str[i] && ft_strchr("-+ #0", flags->str[i]))
 	{
-		if (c == '-')
+		if (flags->str[i] == '-')
 			flags->minus = 1;
-		if (c == '+')
+		if (flags->str[i] == '+')
 			flags->plus = 1;
-		if (c == ' ')
+		if (flags->str[i] == ' ')
 			flags->space = 1;
-		if (c == '#')
+		if (flags->str[i] == '#')
 			flags->hash = 1;
-		if (c == '0')
+		if (flags->str[i] == '0')
 			flags->zero = 1;
 		i++;
-		c = flags->str[i];
 	}
 	if (flags->str[i])
 		set_width_precision(flags, i);
@@ -66,7 +64,7 @@ t_flags	*set_flags(const char *specifier)
 	char	*str;
 	
 	i = 0;
-	while (!ft_strchr("cspdiuxX%", specifier[i]))
+	while (specifier[i] && !ft_strchr("cspdiuxX%", specifier[i]))
 		i++;
 	flags = ft_calloc(sizeof(t_flags), 1);
 	str = ft_calloc(i + 1, 1);

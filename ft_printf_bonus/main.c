@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/30 22:55:51 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 23:22:59 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	ft_printf(const char *format, ...)
                 printf("no flags\n");
 			len += build_str(flags, arg_prt);
             i += ft_strlen(flags->str) + 2; // Jumps the amount of char. the size of the flags + the conversion character
+			if (flags->str)
+				free(flags->str);
+			if (flags)
+				free(flags);
 		}
 		else
 			len += ft_putchar(format[i++]);
@@ -44,7 +48,8 @@ int main(int argc, char *argv[])
     (void)argc;
 	(void)argv;
 	// ft_printf("%s\n", "2147483647");
-	ft_printf("%p\n", argv);
-	ft_printf("%d\n", -2147483648);
+	// ft_printf("%p\n", argv);
+	ft_printf("%i\n", 10);
+	// ft_printf("asdasdfasdf %d\n", -2147483648);
     return (0);
 }
