@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:10:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/30 22:29:33 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 22:54:39 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ char	*converter(long long n, const char *base, int base_len)
 		n *= -1;
 		str[i++] = '-';
 	}
-	i = n_len;
-	while (i >= (str[0] == '-'))
+	i = n_len + (str[0] == '-');
+	while (i > 0 + (str[0] == '-'))
 	{
-		str[i - (str[0] != '-')] = base[n % base_len];
+		str[i - 1] = base[n % base_len];
 		n = n / base_len;
 		i--;
 	}
