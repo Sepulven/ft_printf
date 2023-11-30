@@ -6,13 +6,11 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/28 17:52:15 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:42:03 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-#include <stdio.h>
 
 int	ft_printf(const char *format, ...)
 {
@@ -45,11 +43,6 @@ int main(int argc, char *argv[])
 {
     (void)argc;
 	(void)argv;
-	ft_printf("%05d % 0199.2c %-200.d");
-	ft_printf("%0.10x %07% \n");
-	ft_printf("% 10001X\n");
-	ft_printf("% 0p\n");
-	ft_printf("% 0p %% \n");
-
+	ft_printf("%d\n", 100);
     return (0);	
 }

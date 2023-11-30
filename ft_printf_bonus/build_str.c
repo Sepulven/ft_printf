@@ -6,34 +6,52 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:50:13 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/28 18:57:16 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:35:42 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
 
+char	*pointerconversion(va_list arg)
+{
+	long long	pointer;
+	char		*hex_number;
+	char		*address;
+
+	pointer = va_arg(arg, unsigned long long);
+	if (pointer == 0)
+		return (ft_strdup("(nil)"));
+	hex_number = converter(va_arg(arg, unsigned int), "0123456789abcdef", 16);
+	address = ft_strjoin("0x", hex_number);
+	free(hex_number);
+	return (address);
+}
+
 char    *conversion(char convertor, va_list arg )
 {
-	if (convertor == 'c')
-		return (ft_putchar(va_arg(arg, int)));
+	// if (convertor == 'c')
+	// {
+		
+	// }
+	// 	return (ft_strdup(va_arg(arg, char)));
 	if (convertor == 's')
-		return (ft_putstr(va_arg(arg, char *)));
+		return (ft_strdup(va_arg(arg, char *)));
 	if (convertor == 'p')
 		return (pointerconversion(arg));
 	if (convertor == 'd' || convertor == 'i')
-		return (ft_putnbr_basel(va_arg(arg, int), DECIMAL));
+		return (converter(va_arg(arg, int), "0123456789", 10));
 	if (convertor == 'u')
-		return (ft_putnbr_basel(va_arg(arg, unsigned int), DECIMAL));
+		return (converter(va_arg(arg, unsigned int), "0123456789", 10));
 	if (convertor == 'x')
-		return (ft_putnbr_basel(va_arg(arg, unsigned int), HEX_SMALL));
+		return (converter(va_arg(arg, unsigned int), "0123456789abcdef", 16));
 	if (convertor == 'X')
-		return (ft_putnbr_basel(va_arg(arg, unsigned int), HEX_UPPER));
+		return (converter(va_arg(arg, unsigned int), "0123456789ABCDEF", 16));
 	if (convertor == '%')
-		return (ft_putchar('%'));
+		return (ft_strdup("%d"));
 	return (0);
 }
 
-char    *build_str(t_flags *flags, va_list arg)
+int		build_str(t_flags *flags, va_list arg)
 {
     char    *str;
     size_t  len;

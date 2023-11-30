@@ -1,66 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ull_converter.c                                    :+:      :+:    :+:   */
+/*   converter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:10:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/28 17:49:44 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:38:14 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
 
-/*
-    Print the biggest ingeter value possible, 
-    if we have a negative value it must me treated before.
-*/
 
-static size_t	getlength(ull_t n)
+static int	get_length(long long n, int base_length)
 {
-	size_t	length;
+	int	length;
 
 	length = 1;
 	if (n < 0)
 		n *= -1;
-	while (n > 9)
+	while (n > base_length - 1)
 	{
-		n = n / 10;
+		n = n / base_length;
 		length++;
 	}
 	return (length);
 }
 
-static char	*convert(char *str, size_t sign, int n)
+char	*converter(long long n, const char *base, int base_len)
 {
-	size_t	i;
-	size_t	len;
-
-	i = 0;
-	len = 1;
-	while (i++ < getlength(n) - 1)
-		len = len * 10;
-	i = 0;
-	if (sign)
-		str[i++] = '-';
-	while (len > 0)
-	{
-		str[i++] = n / (len) + 48;
-		n = n % (len);
-		len = len / 10;
-	}
-	return (str);
-}
-
-
-char	*ull_converter(ull_t value)
-{
-	size_t	sign;
+	int	i;
 	char	*str;
+	int		n_len;
 
-	str = ft_calloc(getlength(value) + sign + 1, 1);
+	n_len = get_length(n, base_len);
+	str = ft_calloc(n_len + 1 + (n < 0), 1);
 	if (!str)
 		return (NULL);
-	return (convert(str, sign, value));
+	i = 0;
+	if (n < 0)
+	{
+		n *= -1;
+		str[i++] = '-';
+	}
+	while (i < n_len)
+	{
+		str[i++] = base[n / base_len];
+		n = n % base_len;
+	}
+	return (str);
 }

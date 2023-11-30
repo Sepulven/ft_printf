@@ -6,21 +6,22 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:27 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/28 17:58:19 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:36:07 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+# define FT_PRINTF_H 1
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdio.h>
 # include "libft/libft.h"
 
-# define DECIMAL "0123456789";
-# define HEX_SMALL "0123456789abcdef";
-# define HEX_UPPER "0123456789ABCDEF";
+// # define DEC_BASE "0123456789";
+// # define HEX_S_BASE "0123456789abcdef";
+// # define HEX_U_BASE "0123456789ABCDEF";
 
 // %[$][flags][width][.precision][length modifier] order
 typedef struct s_flags
@@ -49,8 +50,9 @@ void	print_flags(t_flags *flags);
 /*flags.c*/
 t_flags	*set_flags(const char *specifier);
 
-/*ull_converter.c*/
-char	*ull_converter();
+/*converter.c*/
+char	*converter(long long n, const char *base, int base_len);
 
 /*build_str.c*/
+int     build_str(t_flags *flags, va_list arg);
 #endif

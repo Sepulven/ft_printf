@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/27 22:03:01 by asepulve          #+#    #+#              #
-#    Updated: 2023/11/28 17:36:47 by asepulve         ###   ########.fr        #
+#    Updated: 2023/11/30 18:40:15 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC 			= 		gcc
 
 CFLAGS 		= 		-Wall -Werror -Wextra 
 
-SRC 		= 		main.c builder.c
+SRC 		= 		main.c build_str.c converter.c flags.c utils.c
 
 OBJ			= ${SRC:%.c=%.o}
 
