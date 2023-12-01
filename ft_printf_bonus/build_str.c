@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:50:13 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/30 23:19:06 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:16:26 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,37 @@ char	*pointerconversion(va_list arg)
 	pointer = va_arg(arg, unsigned long long);
 	if (pointer == 0)
 		return (ft_strdup("(nil)"));
-	hex_number = converter(va_arg(arg, unsigned long long), "0123456789abcdef", 16);
+	hex_number = converter_ull(pointer, "0123456789abcdef", 16);
 	address = ft_strjoin("0x", hex_number);
 	if (hex_number)
 		free(hex_number);
 	return (address);
 }
 
+char	*charcase(char c)
+{
+	char	*str;
+
+	str = ft_calloc(2, 1);
+	if (!str)
+		return (NULL);
+	str[0] = c;
+	return (str);
+}
+
+char	*strcase(char *str)
+{
+	if (!str)
+		return (ft_strdup("(null)"));
+	return (ft_strdup(str));
+}
+
 char    *conversion(char convertor, va_list arg )
 {
-	// if (convertor == 'c')
-	// {
-		
-	// }
-	// 	return (ft_strdup(va_arg(arg, char)));
+	if (convertor == 'c')
+		return(charcase(va_arg(arg, int)));
 	if (convertor == 's')
-		return (ft_strdup(va_arg(arg, char *)));
+		return (strcase(va_arg(arg, char *)));
 	if (convertor == 'p')
 		return (pointerconversion(arg));
 	if (convertor == 'd' || convertor == 'i')
@@ -48,7 +63,7 @@ char    *conversion(char convertor, va_list arg )
 	if (convertor == 'X')
 		return (converter(va_arg(arg, unsigned int), "0123456789ABCDEF", 16));
 	if (convertor == '%')
-		return (ft_strdup("%d"));
+		return (ft_strdup("%"));
 	return (0);
 }
 
@@ -61,7 +76,9 @@ int		build_str(t_flags *flags, va_list arg)
     str = conversion(flags->conversion, arg);
     // Apply the specifiers, flags and then writes it;
     len = ft_strlen(str);
-    write(1, str, len);
+    if (flags->conversion == 'c' && len == 0)
+		len++;
+	write(1, str, len);
 	if (str)
     	free(str);
     return (len);

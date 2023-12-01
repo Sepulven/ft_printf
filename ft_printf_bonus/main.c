@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/30 23:22:59 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:16:33 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,11 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-int main(int argc, char *argv[])
-{
-    (void)argc;
-	(void)argv;
-	// ft_printf("%s\n", "2147483647");
-	// ft_printf("%p\n", argv);
-	ft_printf("%i\n", 10);
-	// ft_printf("asdasdfasdf %d\n", -2147483648);
-    return (0);
-}
+// int	main(void)
+// {
+// 	// ft_printf("%p\n", -1);
+// 	ft_printf("%p\n", 10);
+// 	// printf("%p\n", (void *) -1);
+// 	printf("%p\n", (void *) 10);
+// 	return (0);
+// }

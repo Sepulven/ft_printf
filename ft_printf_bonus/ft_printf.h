@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:27 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/30 18:36:07 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/11/30 23:59:01 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ t_flags	*set_flags(const char *specifier);
 
 /*converter.c*/
 char	*converter(long long n, const char *base, int base_len);
+char	*converter_ull(ull_t n, const char *base, int base_len);
+
 
 /*build_str.c*/
 int     build_str(t_flags *flags, va_list arg);
