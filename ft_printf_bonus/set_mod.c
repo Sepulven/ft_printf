@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags.c                                            :+:      :+:    :+:   */
+/*   set_mod.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:37:31 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/01 12:53:56 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:49:56 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ static int	set_flags_values(t_mod *mod)
 	while(mod->str[i] && ft_strchr("-+ #0", mod->str[i]))
 	{
 		if (mod->str[i] == '-')
-			ft_strjoin_free(mod->flags, "-");
+			mod->flags = ft_strjoin_free(mod->flags, "-", 'l');
 		if (mod->str[i] == '+')
-			ft_strjoin_free(mod->flags, "+");
+			mod->flags = ft_strjoin_free(mod->flags, "+", 'l');
 		if (mod->str[i] == ' ')
-			ft_strjoin_free(mod->flags, " ");
+			mod->flags = ft_strjoin_free(mod->flags, " ", 'l');
 		if (mod->str[i] == '#')
-			ft_strjoin_free(mod->flags, "#");
+			mod->flags = ft_strjoin_free(mod->flags, "#", 'l');
 		if (mod->str[i] == '0')
-			ft_strjoin_free(mod->flags, "0");
+			mod->flags = ft_strjoin_free(mod->flags, "0", 'l');
 		i++;
 	}
 	if (mod->str[i])

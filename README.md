@@ -6,7 +6,6 @@ Recreate printf.
 
 ## %[$][flags][width][.precision][length modifier]conversion
 
-
 ### Conversion
 
 1. %c Prints a single character.

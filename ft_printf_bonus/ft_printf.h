@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:27 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/01 13:19:05 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:48:41 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int			ft_printf(const char *format, ...);
 /*utils.c*/
 size_t	ft_putchar(char c);
 void	print_flags(t_mod *flags);
-char	*ft_strjoin_free(char *s1, char *s2);
+char	*ft_strjoin_free(char *s1, char *s2, char c);
 
 /*set_mod.c*/
 t_mod	*set_mod(const char *specifier);
