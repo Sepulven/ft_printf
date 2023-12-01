@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/27 22:03:01 by asepulve          #+#    #+#              #
-#    Updated: 2023/12/01 14:09:41 by asepulve         ###   ########.fr        #
+#    Updated: 2023/12/01 14:51:24 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,9 @@ all: ${NAME}
 
 $(NAME): ${OBJ}
 	@ar -rsc ${NAME} *.o
+
+exec:
+	@${CC}  ./libft/*.c *.c
 
 bonus: ${OBJ}
 	@ar -rsc ${NAME} *.o

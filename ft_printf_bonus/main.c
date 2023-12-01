@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/01 14:00:33 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:30:07 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,62 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-// int	main(void)
-// {
-// 	// ft_printf("%p\n", -1);
-// 	ft_printf("%+d\n", 10);
-// 	// printf("%p\n", (void *) -1);
-// 	printf("%+d\n", 10);
-// 	return (0);
-// }
+/*
+int	main(void)
+{
+	// int	len;
+
+	printf("%#x\n", 0);
+	// printf(" %#x ", -1);
+	// printf(" %#x ", 1);
+	// printf(" %#x ", 9);
+	// printf(" %#x ", 10);
+	// printf(" %#x ", 11);
+	// printf(" %#x ", 15);
+	// printf(" %#x ", 16);
+	// printf(" %#x ", 17);
+	// printf(" %#x ", 99);
+	// printf(" %#x ", 100);
+	// printf(" %#x ", 101);
+	// printf(" %#x ", -9);
+	// printf(" %#x ", -10);
+	// printf(" %#x ", -11);
+	// printf(" %#x ", -14);
+	// printf(" %#x ", -15);
+	// printf(" %#x ", -16);
+	// printf(" %#x ", -99);
+	// printf(" %#x ", -100);
+	// printf(" %#x ", -101);
+
+	// ft_printf("%#x\n", 0);
+	// ft_printf(" %#x ", -1);
+	// ft_printf(" %#x ", 1);
+	// ft_printf(" %#x ", 9);
+	// ft_printf(" %#x ", 10);
+	// ft_printf(" %#x ", 11);
+	// ft_printf(" %#x ", 15);
+	// ft_printf(" %#x ", 16);
+	// ft_printf(" %#x ", 17);
+	// ft_printf(" %#x ", 99);
+	// ft_printf(" %#x ", 100);
+	// ft_printf(" %#x ", 101);
+	// ft_printf(" %#x ", -9);
+	// ft_printf(" %#x ", -10);
+	// ft_printf(" %#x ", -11);
+	// ft_printf(" %#x ", -14);
+	// ft_printf(" %#x ", -15);
+	// ft_printf(" %#x ", -16);
+	// ft_printf(" %#x ", -99);
+	// ft_printf(" %#x ", -100);
+	// ft_printf(" %#x ", -101);
+
+	// printf("\n");
+	// printf("%d\n", len);
+	
+	// printf("------------- 2 ---------------\n");
+	// ft_printf("[% s]\n", "-");
+	// printf("[% s]\n", "-");
+
+	return (0);
+}
+*/

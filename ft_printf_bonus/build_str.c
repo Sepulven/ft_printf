@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:50:13 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/01 14:00:21 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:13:02 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,13 @@ int		build_str(t_mod *mod, va_list arg)
     char    *str;
     size_t  len;
 
+	len = 0;
     str = conversion(mod->conversion, arg);
 	str = mod_flags(str, mod);
 	// mod_width(str, mod);
 	// mod_precision(str, mod);
-    len = ft_strlen(str);
+	if (str)
+    	len = ft_strlen(str);
 	write(1, str, len);
 	if (str)
     	free(str);
