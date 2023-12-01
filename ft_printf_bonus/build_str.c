@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:50:13 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/01 12:16:26 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:19:57 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ char	*charcase(char c)
 	if (!str)
 		return (NULL);
 	str[0] = c;
+	//Attention, it may lead to errors in the bonus.
+	if (!c)
+		write(1, &c, 1);
 	return (str);
 }
 
@@ -67,19 +70,19 @@ char    *conversion(char convertor, va_list arg )
 	return (0);
 }
 
-int		build_str(t_flags *flags, va_list arg)
+int		build_str(t_mod *mod, va_list arg)
 {
     char    *str;
     size_t  len;
 
-    // Take the value from the arg. then turn it to a string;
-    str = conversion(flags->conversion, arg);
-    // Apply the specifiers, flags and then writes it;
+    str = conversion(mod->conversion, arg);
+	mod_flags(str, mod);
+	mod_width(str, mod);
+	mod_precision(str, mod);
     len = ft_strlen(str);
-    if (flags->conversion == 'c' && len == 0)
-		len++;
 	write(1, str, len);
 	if (str)
     	free(str);
     return (len);
 }
+

@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:27 by asepulve          #+#    #+#             */
-/*   Updated: 2023/11/30 23:59:01 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:19:05 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,32 @@
 // # define HEX_U_BASE "0123456789ABCDEF";
 
 // %[$][flags][width][.precision][length modifier] order
-typedef struct s_flags
+typedef struct s_mod
 {
     char    *str; /*holds the specifiers and the flags*/
-    char    conversion; /*tells the datatype*/
-    int     minus; /*left alignment, the output is left-justified*/
-    int     zero; /*zero should be used for the character of padding*/
+    char    *flags;
     int     precision; /*Precision is the number of digits to be printed after the decimal*/
     int     min_width; /*tells the minimum width of the string*/
-    /*-- everything above should work with all conversions --*/
-    int     hash; /*hash convert the value to an alternet form*/
-    int     plus; /*specify that the value should always be shown*/
-    int     space; /*Adds an extra space to align number in tables, add a space for positive values and the minus sign in negative one*/
+    char    conversion; /*tells the datatype*/
+} t_mod;
+
+/*
+typedef struct s_flags
+{
+    char    *str; holds the specifiers and the flags
+    char    conversion; tells the datatype
+    int     minus; left alignment, the output is left-justified
+    int     zero; zero should be used for the character of padding
+    int     precision; Precision is the number of digits to be printed after the decimal
+    int     min_width; tells the minimum width of the string
+     
+     everything above should work with all conversions
+     
+    int     hash; hash convert the value to an alternet form
+    int     plus; specify that the value should always be shown
+    int     space; Adds an extra space to align number in tables, add a space for positive values and the minus sign in negative one
 } t_flags;
+*/
 
 typedef unsigned long long ull_t;
 
@@ -45,16 +58,26 @@ int			ft_printf(const char *format, ...);
 
 /*utils.c*/
 size_t	ft_putchar(char c);
-void	print_flags(t_flags *flags);
+void	print_flags(t_mod *flags);
+char	*ft_strjoin_free(char *s1, char *s2);
 
-/*flags.c*/
-t_flags	*set_flags(const char *specifier);
+/*set_mod.c*/
+t_mod	*set_mod(const char *specifier);
 
 /*converter.c*/
 char	*converter(long long n, const char *base, int base_len);
 char	*converter_ull(ull_t n, const char *base, int base_len);
 
-
 /*build_str.c*/
-int     build_str(t_flags *flags, va_list arg);
+int     build_str(t_mod *flags, va_list arg);
+
+/*mod_flags.c*/
+char    *mod_flags(char *str, t_mod *mod);
+
+/*mod_width.c*/
+char    *mod_width(char *str, t_mod *mod);
+
+/*mod_precision.c*/
+char    *mod_precision(char *str, t_mod *mod);
+
 #endif
