@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/27 22:03:01 by asepulve          #+#    #+#              #
-#    Updated: 2023/12/01 14:51:24 by asepulve         ###   ########.fr        #
+#    Updated: 2023/12/02 18:40:58 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC 			= 		gcc
 
 CFLAGS 		= 		-Wall -Werror -Wextra 
 
-SRC 		= 		main.c build_str.c converter.c mod_flags.c set_mod.c utils.c libft/*.c
+SRC 		= 		main.c build_str.c converter.c mod_flags.c mod_width.c set_mod.c utils.c libft/*.c
 
 OBJ			= ${SRC:%.c=%.o}
 
