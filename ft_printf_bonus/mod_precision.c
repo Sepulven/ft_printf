@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:15:43 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/03 16:27:47 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:50:10 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ char    *mod_precision_num(char *str, t_mod *mod)
 
     i = ft_strlen(str) - 1;
     j = mod->precision - 1;
+    if (ft_strchr(str, '-'))
+    {
+        mod->precision++;
+        j++;
+    }
     new = ft_calloc(mod->precision + 1, 1);
     if (!new)
         return (NULL);
@@ -40,10 +45,12 @@ char    *mod_precision(char *str, t_mod *mod)
 {
     if (!ft_strchr(mod->flags, '.') || !ft_strchr("sdiuxX", mod->conversion))
         return (str);
-    if (mod->conversion == 's'
-        && ft_strlen(str) >= (size_t)mod->precision)
+    if (mod->conversion == 's')
+    {
+        if (ft_strlen(str) >= (size_t)mod->precision)
             str[mod->precision] = 0;
-    else if (ft_strlen(str) >= (size_t)mod->precision)
+    }
+    else if (ft_strlen(str) - !!ft_strchr(str, '-') < (size_t)mod->precision)
         str = mod_precision_num(str, mod);
     return (str);
 }

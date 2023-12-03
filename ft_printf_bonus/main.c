@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/03 16:21:17 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:50:17 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	main(void)
 {
 	int len1, len2;
 	
-	printf(" %.1s\n", "");
-	ft_printf(" %.1s\n", "");
+	printf(" %.2d\n", -2);
+	ft_printf(" %.2d\n", -2);
 	
 	return (0);
 }*/
