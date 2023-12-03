@@ -6,12 +6,11 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:10:59 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/01 12:16:38 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 19:22:37 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
-
 
 static int	get_length(long long n, int base_length)
 {
@@ -30,7 +29,7 @@ static int	get_length(long long n, int base_length)
 
 char	*converter(long long n, const char *base, int base_len)
 {
-	int	i;
+	int		i;
 	char	*str;
 	int		n_len;
 
@@ -54,13 +53,12 @@ char	*converter(long long n, const char *base, int base_len)
 	return (str);
 }
 
-
-static int	get_length_ull(ull_t n, int base_length)
+static int	get_length_ull(t_ull n, int base_length)
 {
 	int	length;
 
 	length = 1;
-	while (n > (ull_t)base_length - 1)
+	while (n > (t_ull)base_length - 1)
 	{
 		n = n / base_length;
 		length++;
@@ -70,7 +68,7 @@ static int	get_length_ull(ull_t n, int base_length)
 
 char	*converter_ull(unsigned long long n, const char *base, int base_len)
 {
-	int	i;
+	int		i;
 	char	*str;
 	int		n_len;
 

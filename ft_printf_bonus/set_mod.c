@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:37:31 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/03 16:13:25 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 19:07:58 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	set_flags_values(t_mod *mod)
 
 	i = 0;
 	mod->flags = ft_strdup("");
-	while(mod->str[i] && ft_strchr("-+ #0", mod->str[i]))
+	while (mod->str[i] && ft_strchr("-+ #0", mod->str[i]))
 	{
 		if (mod->str[i] == '-')
 			mod->flags = ft_strjoin_free(mod->flags, "-", 'l');
@@ -63,10 +63,10 @@ static int	set_flags_values(t_mod *mod)
 */
 t_mod	*set_mod(const char *specifier)
 {
-	t_mod *mod;
+	t_mod	*mod;
 	int		i;
 	char	*str;
-	
+
 	i = 0;
 	while (specifier[i] && !ft_strchr("cspdiuxX%", specifier[i]))
 		i++;

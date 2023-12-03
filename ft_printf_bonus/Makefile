@@ -6,7 +6,7 @@
 #    By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/27 22:03:01 by asepulve          #+#    #+#              #
-#    Updated: 2023/12/03 18:58:11 by asepulve         ###   ########.fr        #
+#    Updated: 2023/12/03 19:01:46 by asepulve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,6 @@ SRC 		= 		main.c build_str.c converter.c mod_flags.c mod_width.c\
 
 OBJ			= ${SRC:%.c=%.o}
 
-LIB			= libft/libft.a
-
 RM		=		rm -rf
 
 %.o : %.c
@@ -40,10 +38,6 @@ exec:
 
 bonus: ${OBJ}
 	@ar -rsc ${NAME} ${OBJ}
-
-# $(NAME):
-# @make  -SC libft
-# @gcc ${CFLAGS} ${SRC} ${LIB}
 
 clean:
 	@${RM} ${OBJ}
