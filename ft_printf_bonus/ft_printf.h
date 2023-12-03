@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:27 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/01 13:48:41 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:04:34 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int     build_str(t_mod *flags, va_list arg);
 char    *mod_flags(char *str, t_mod *mod);
 
 /*mod_width.c*/
+void    swap_chars(char *s1, char *s2);
+char    *mod_zero(char *str, t_mod *mod);
 char    *mod_width(char *str, t_mod *mod);
 
 /*mod_precision.c*/

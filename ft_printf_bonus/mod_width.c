@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:16:24 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/03 15:13:59 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 15:47:03 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char    *mod_minus(char *str, t_mod *mod)
     return (new);
 }
 
-static void swap_chars(char *s1, char *s2)
+void swap_chars(char *s1, char *s2)
 {
     char    temp;
 

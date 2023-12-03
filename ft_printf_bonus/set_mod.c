@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:37:31 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/01 13:49:56 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:13:25 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ static int	set_width_precision(t_mod *mod, int i)
 		mod->min_width = ft_atoi(&mod->str[i]);
 	c = ft_strchr(&mod->str[i], '.');
 	if (c)
+	{
+		mod->flags = ft_strjoin_free(mod->flags, ".", 'l');
 		mod->precision = ft_atoi(&c[1]);
+	}
 	return (1);
 }
 
@@ -74,6 +77,8 @@ t_mod	*set_mod(const char *specifier)
 	ft_strlcpy(str, specifier, i + 1);
 	mod->str = str;
 	mod->conversion = specifier[i];
+	mod->min_width = 0;
+	mod->precision = 0;
 	if (!set_flags_values(mod))
 		return (NULL);
 	return (mod);

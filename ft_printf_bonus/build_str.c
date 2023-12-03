@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:50:13 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/03 14:43:52 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 15:46:02 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int		build_str(t_mod *mod, va_list arg)
 		len++;
 	str = mod_flags(str, mod);
 	str = mod_width(str, mod);
-	// mod_precision(str, mod);
+	str = mod_precision(str, mod);
 	len += ft_strlen(&str[len]);
 	write(1, str, len);
 	if (str)

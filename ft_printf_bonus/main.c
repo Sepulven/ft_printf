@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/03 15:14:19 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:21:17 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,14 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
+
 /*
 int	main(void)
 {
 	int len1, len2;
 	
-	len1 = printf(" %04d ", -14);
-	printf("\nlen1-printf = %d\n", len1);
-	printf("\n---------------------\\---------------------\n");
-	len2 = ft_printf(" %04d ", -14);
-	printf("\nlen1-ft_printf = %d\n", len1);
-	if (len1 != len2)
-		printf("here\n");
+	printf(" %.1s\n", "");
+	ft_printf(" %.1s\n", "");
+	
 	return (0);
 }*/
