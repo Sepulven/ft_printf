@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:27 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/03 16:04:34 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 18:55:19 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,30 @@ char    *mod_width(char *str, t_mod *mod);
 /*mod_precision.c*/
 char    *mod_precision(char *str, t_mod *mod);
 
+/*ft_strjoin.c*/
+char	*ft_strjoin(char const *s1, char const *s2);
+
+/*ft_isdigit.c*/
+int	ft_isdigit(int c);
+
+/*ft_strchr.c*/
+char	*ft_strchr(const char *s, int c);
+
+/*ft_strdup.c*/
+char	*ft_strdup(const char *s);
+
+/*ft_strlen.c*/
+size_t	ft_strlen(const char *str);
+
+/*ft_calloc.c*/
+void	*ft_calloc(size_t nmemb, size_t size);
+
+/*ft_atoi.c*/
+int	ft_atoi(const char *nptr);
+
+/*ft_strlcpy.c*/
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+
+/*ft_strncmp.c*/
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 #endif
