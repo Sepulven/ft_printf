@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:16:24 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/03 14:56:26 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 15:13:59 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ char    *mod_minus(char *str, t_mod *mod)
     return (new);
 }
 
+static void swap_chars(char *s1, char *s2)
+{
+    char    temp;
+
+    temp = *s1;
+    *s1 = *s2;
+    *s2 = temp;
+}
+
 char    *mod_zero(char *str, t_mod *mod)
 {
     char *new;
@@ -53,6 +62,9 @@ char    *mod_zero(char *str, t_mod *mod)
         new[j--] = str[i--];
     while (j >= 0)
         new[j--] = '0';
+    if ((mod->conversion == 'd' || mod->conversion == 'i')
+        && ft_strchr(str, '-'))
+        swap_chars(ft_strchr(new, '-'), new);
     if (str)
         free(str);
     return (new);
