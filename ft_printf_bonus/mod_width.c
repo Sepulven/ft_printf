@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:16:24 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/02 18:43:20 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 14:56:26 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ char    *mod_minus(char *str, t_mod *mod)
         new[j] = str[j];
         j++;
     }
+        
     while (j < mod->min_width)
         new[j++] = ' ';
+    if (str_len == 0 && mod->conversion == 'c') // Edge Case
+        new[0] = 0;
     if (str)
         free(str);
     return (new);
@@ -80,6 +83,9 @@ char    *mod_width(char *str, t_mod *mod)
 {
     if (ft_strlen(str) >= (size_t)mod->min_width)
         return (str);
+    if ((mod->conversion == 'c' && ft_strlen(str) == 0)
+        && ft_strlen(str) + 1 >= (size_t)mod->min_width)
+            return (str);
     if (ft_strchr(mod->flags, '-'))
         str = mod_minus(str, mod);
     else if (mod->flags[0] == '0')

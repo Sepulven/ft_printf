@@ -6,7 +6,7 @@
 /*   By: asepulve <asepulve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 22:03:04 by asepulve          #+#    #+#             */
-/*   Updated: 2023/12/01 16:30:07 by asepulve         ###   ########.fr       */
+/*   Updated: 2023/12/03 15:00:16 by asepulve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,62 +45,17 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-/*
+
 int	main(void)
 {
-	// int	len;
-
-	printf("%#x\n", 0);
-	// printf(" %#x ", -1);
-	// printf(" %#x ", 1);
-	// printf(" %#x ", 9);
-	// printf(" %#x ", 10);
-	// printf(" %#x ", 11);
-	// printf(" %#x ", 15);
-	// printf(" %#x ", 16);
-	// printf(" %#x ", 17);
-	// printf(" %#x ", 99);
-	// printf(" %#x ", 100);
-	// printf(" %#x ", 101);
-	// printf(" %#x ", -9);
-	// printf(" %#x ", -10);
-	// printf(" %#x ", -11);
-	// printf(" %#x ", -14);
-	// printf(" %#x ", -15);
-	// printf(" %#x ", -16);
-	// printf(" %#x ", -99);
-	// printf(" %#x ", -100);
-	// printf(" %#x ", -101);
-
-	// ft_printf("%#x\n", 0);
-	// ft_printf(" %#x ", -1);
-	// ft_printf(" %#x ", 1);
-	// ft_printf(" %#x ", 9);
-	// ft_printf(" %#x ", 10);
-	// ft_printf(" %#x ", 11);
-	// ft_printf(" %#x ", 15);
-	// ft_printf(" %#x ", 16);
-	// ft_printf(" %#x ", 17);
-	// ft_printf(" %#x ", 99);
-	// ft_printf(" %#x ", 100);
-	// ft_printf(" %#x ", 101);
-	// ft_printf(" %#x ", -9);
-	// ft_printf(" %#x ", -10);
-	// ft_printf(" %#x ", -11);
-	// ft_printf(" %#x ", -14);
-	// ft_printf(" %#x ", -15);
-	// ft_printf(" %#x ", -16);
-	// ft_printf(" %#x ", -99);
-	// ft_printf(" %#x ", -100);
-	// ft_printf(" %#x ", -101);
-
-	// printf("\n");
-	// printf("%d\n", len);
+	int len1, len2;
 	
-	// printf("------------- 2 ---------------\n");
-	// ft_printf("[% s]\n", "-");
-	// printf("[% s]\n", "-");
-
+	len1 = printf("[%-3c]", 0);
+	printf("\nlen1-printf = %d\n", len1);
+	printf("\n---------------------\\---------------------\n");
+	len2 = ft_printf("[%-3c]", 0);
+	printf("\nlen1-ft_printf = %d\n", len1);
+	if (len1 != len2)
+		printf("here\n");
 	return (0);
 }
-*/
